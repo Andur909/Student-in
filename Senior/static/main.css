@@ -1,0 +1,110 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Main container */
+#whole_div {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Top bar for profile & logout buttons */
+#top_div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    background-color: #333;
+}
+
+#username_div {
+    display: flex;
+    gap: 10px;
+}
+
+/* Profile & Logout button styling */
+#username_div button {
+    background-color: #555;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#username_div button:hover {
+    background-color: #777;
+}
+
+/* Title */
+#title_div h1 {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+/* Box around the buttons */
+#buttons_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 350px; /* Adjust width */
+    margin: auto;
+}
+
+/* Individual buttons */
+#buttons_div button {
+    width: 250px; /* Moderate size */
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+#buttons_div button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f80);
+    transform: scale(1.05);
+}
+
+/* Welcome title */
+#title_div h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #007bff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 30px 0;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
