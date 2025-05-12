@@ -5,6 +5,9 @@ function Initial() {
     document.getElementById("btn_logout").addEventListener("click", log_out);
 	
 	document.getElementById("btn_profile").addEventListener("click", profile);
+	
+	//middle buttons
+	document.getElementById("btn_games").addEventListener("click", Game);
 
 }
 
@@ -22,4 +25,8 @@ function log_out() {
 
 function profile() {
 	window.location.href = "profile.html";
+}
+
+function Game() {
+	window.location.href = "wordle.html";
 }
