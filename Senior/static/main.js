@@ -8,6 +8,7 @@ function Initial() {
 	
 	//middle buttons
 	document.getElementById("btn_games").addEventListener("click", Game);
+	document.getElementById("btn_calculator").addEventListener("click", Calculator);
 
 }
 
@@ -29,4 +30,8 @@ function profile() {
 
 function Game() {
 	window.location.href = "wordle.html";
+}
+
+function Calculator() {
+	window.location.href = "calculator.html";
 }
