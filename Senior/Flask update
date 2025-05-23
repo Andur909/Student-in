@@ -10,11 +10,6 @@ def login():
 
 
 @app.route("/signup")
-def signup():
-    return render_template("signup.html")
-
-
-@app.route("signup.html", methods=["POST"])
 def signup_post():
     username = request.form.get("username")
     password = request.form.get("password")
@@ -25,7 +20,7 @@ def signup_post():
     return redirect(url_for("home"))
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login")
 def login_post():
     username = request.form.get("username")
     password = request.form.get("password")
@@ -42,7 +37,7 @@ def home():
     return render_template("home.html", username=session["username"])
 
 
-@app.route("profile.html")
+@app.route("/profile")
 def profile():
     if "username" not in session:
         return redirect(url_for("login"))
@@ -54,12 +49,12 @@ def calculator():
     return render_template("calculator.html")
 
 
-@app.route("wordle.html")
+@app.route("/wordle")
 def wordle():
     return render_template("wordle.html")
 
 
-@app.route("logout")
+@app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
