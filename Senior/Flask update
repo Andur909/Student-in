@@ -1,0 +1,69 @@
+from flask import Flask, render_template, redirect, url_for, request, session
+app = Flask(__name__)
+
+users = {}
+
+
+@app.route("/")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+
+@app.route("signup.html", methods=["POST"])
+def signup_post():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    if username in users:
+        return "Username already exists"
+    users[username] = password
+    session["username"] = username
+    return redirect(url_for("home"))
+
+
+@app.route("/login", methods=["POST"])
+def login_post():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    if users.get(username) == password:
+        session["username"] = username
+        return redirect(url_for("home"))
+    return "Invalid username"
+
+
+@app.route("/home")
+def home():
+    if "username" not in session:
+        return redirect(url_for("login"))
+    return render_template("home.html", username=session["username"])
+
+
+@app.route("profile.html")
+def profile():
+    if "username" not in session:
+        return redirect(url_for("login"))
+    return render_template("profile.html", username=session["username"])
+
+
+@app.route("/calculator")
+def calculator():
+    return render_template("calculator.html")
+
+
+@app.route("wordle.html")
+def wordle():
+    return render_template("wordle.html")
+
+
+@app.route("logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
+
+if __name__ == "__main__":
+  
