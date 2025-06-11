@@ -41,43 +41,80 @@ function goBack() {
 }
 
 function switchMode() {
-    if (document.getElementById("mode_label").textContent == "Standard") {
-        document.getElementById("mode_label").textContent = "Scientic";
-    } else {
-        document.getElementById("mode_label").textContent = "Standard";
+    var label = document.getElementById("mode_label");
+    if (label.textContent == "Standard") {
+        label.textContent = "Scientific";
     }
-    //label.textContent = label.textContent == "Standard" ? "Scientific" : "Standard";
+    else {
+        label.textContent = "Standard";
+    }
 }
 
 function updateDisplay() {
     var display = document.getElementById("display");
-    display.textContent = current || "0";
+    if (current == "") {
+        display.textContent = "0";
+    }
+    else {
+        display.textContent = current;
+    }
 }
 
 // Number buttons
-function btn_0_click() { current += "0"; updateDisplay(); }
-function btn_1_click() { current += "1"; updateDisplay(); }
-function btn_2_click() { current += "2"; updateDisplay(); }
-function btn_3_click() { current += "3"; updateDisplay(); }
-function btn_4_click() { current += "4"; updateDisplay(); }
-function btn_5_click() { current += "5"; updateDisplay(); }
-function btn_6_click() { current += "6"; updateDisplay(); }
-function btn_7_click() { current += "7"; updateDisplay(); }
-function btn_8_click() { current += "8"; updateDisplay(); }
-function btn_9_click() { current += "9"; updateDisplay(); }
+function btn_0_click() { 
+    current += "0"; updateDisplay(); 
+    }
+function btn_1_click() { 
+    current += "1"; updateDisplay(); 
+    }
+function btn_2_click() { 
+    current += "2"; updateDisplay(); 
+    }
+function btn_3_click() { 
+    current += "3"; updateDisplay(); 
+    }
+function btn_4_click() { 
+    current += "4"; updateDisplay(); 
+    }
+function btn_5_click() { 
+    current += "5"; updateDisplay(); 
+    }
+function btn_6_click() { 
+    current += "6"; updateDisplay(); 
+    }
+function btn_7_click() { 
+    current += "7"; updateDisplay(); 
+    }
+function btn_8_click() { 
+    current += "8"; updateDisplay(); 
+    }
+function btn_9_click() { 
+    current += "9"; updateDisplay(); 
+    }
+
 function btn_dot_click() {
-    if (!current.includes(".")) {
-        if (current == "") current = "0";
+    if (current.indexOf(".") == -1) {
+        if (current == "") {
+            current = "0";
+        }
         current += ".";
         updateDisplay();
     }
 }
 
-// Operator buttons
-function btn_plus_click()    { operator_click("+"); }
-function btn_minus_click()   { operator_click("−"); }
-function btn_multiply_click(){ operator_click("×"); }
-function btn_divide_click()  { operator_click("÷"); }
+// Operators
+function btn_plus_click() { 
+    operator_click("+"); 
+    }
+function btn_minus_click() { 
+    operator_click("−"); 
+    }
+function btn_multiply_click() { 
+    operator_click("×"); 
+    }
+function btn_divide_click() { 
+    operator_click("÷"); 
+    }
 
 function operator_click(op) {
     if (current != "") {
@@ -89,12 +126,15 @@ function operator_click(op) {
 
 function btn_equal_click() {
     var display = document.getElementById("display");
-    if (operator && operand != null && current != "") {
+
+    if (operator != "" && operand != null && current != "") {
         var a = parseFloat(operand);
         var b = parseFloat(current);
         var result = 0;
 
-        if (operator == "+") result = a + b;
+        if (operator == "+") {
+            result = a + b;
+        }
         else if (operator == "−") {
             result = a - b;
         }
@@ -102,9 +142,13 @@ function btn_equal_click() {
             result = a * b;
         }
         else if (operator == "÷") {
-            result = b != 0 ? a / b : "Error";
+            if (b == 0) {
+                result = "Error";
+            }
+            else {
+                result = a / b;
+            }
         }
-    
 
         current = result.toString();
         operand = null;
@@ -113,7 +157,7 @@ function btn_equal_click() {
     }
 }
 
-// Special buttons
+// Special functions
 function btn_sign_click() {
     if (current[0] == "-") {
         var newStr = "";
@@ -121,7 +165,8 @@ function btn_sign_click() {
             newStr += current[i];
         }
         current = newStr;
-    } else {
+    }
+    else {
         current = "-" + current;
     }
     updateDisplay();
@@ -141,7 +186,9 @@ function btn_ce_click() {
 
 function btn_delete_click() {
     var newStr = "";
-    for (var i = 0; i < current.length - 1; i++) newStr += current[i];
+    for (var i = 0; i < current.length - 1; i++) {
+        newStr += current[i];
+    }
     current = newStr;
     updateDisplay();
 }
@@ -150,7 +197,12 @@ function btn_delete_click() {
 function btn_sqrt_click() {
     if (current != "") {
         var num = parseFloat(current);
-        current = num < 0 ? "Error" : Math.sqrt(num).toString();
+        if (num < 0) {
+            current = "Error";
+        }
+        else {
+            current = Math.sqrt(num).toString();
+        }
         updateDisplay();
     }
 }
@@ -166,7 +218,12 @@ function btn_square_click() {
 function btn_inv_click() {
     if (current != "") {
         var num = parseFloat(current);
-        current = num == 0 ? "Error" : (1 / num).toString();
+        if (num == 0) {
+            current = "Error";
+        }
+        else {
+            current = (1 / num).toString();
+        }
         updateDisplay();
     }
 }
