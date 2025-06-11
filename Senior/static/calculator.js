@@ -19,18 +19,21 @@ function Initial() {
     document.getElementById("btn_8").addEventListener("click", btn_8_click);
     document.getElementById("btn_9").addEventListener("click", btn_9_click);
 
+    document.getElementById("btn_dot").addEventListener("click", btn_dot_click);
     document.getElementById("btn_plus").addEventListener("click", btn_plus_click);
     document.getElementById("btn_minus").addEventListener("click", btn_minus_click);
     document.getElementById("btn_multiply").addEventListener("click", btn_multiply_click);
     document.getElementById("btn_divide").addEventListener("click", btn_divide_click);
     document.getElementById("btn_equal").addEventListener("click", btn_equal_click);
+
+    document.getElementById("btn_sign").addEventListener("click", btn_sign_click);
     document.getElementById("btn_clear").addEventListener("click", btn_clear_click);
     document.getElementById("btn_delete").addEventListener("click", btn_delete_click);
-    document.getElementById("btn_sign").addEventListener("click", btn_sign_click);
-    document.getElementById("btn_dot").addEventListener("click", btn_dot_click);
+    document.getElementById("btn_ce").addEventListener("click", btn_ce_click);
+    document.getElementById("btn_percent").addEventListener("click", btn_percent_click);
     document.getElementById("btn_sqrt").addEventListener("click", btn_sqrt_click);
     document.getElementById("btn_square").addEventListener("click", btn_square_click);
-
+    document.getElementById("btn_inv").addEventListener("click", btn_inv_click);
 }
 
 function goBack() {
@@ -38,9 +41,12 @@ function goBack() {
 }
 
 function switchMode() {
-    var label = document.getElementById("mode_label");
-    if (label.textContent == "Standard") label.textContent = "Scientific";
-    else label.textContent = "Standard";
+    if (document.getElementById("mode_label").textContent == "Standard") {
+        document.getElementById("mode_label").textContent = "Scientic";
+    } else {
+        document.getElementById("mode_label").textContent = "Standard";
+    }
+    //label.textContent = label.textContent == "Standard" ? "Scientific" : "Standard";
 }
 
 function updateDisplay() {
@@ -48,6 +54,7 @@ function updateDisplay() {
     display.textContent = current || "0";
 }
 
+// Number buttons
 function btn_0_click() { current += "0"; updateDisplay(); }
 function btn_1_click() { current += "1"; updateDisplay(); }
 function btn_2_click() { current += "2"; updateDisplay(); }
@@ -58,8 +65,15 @@ function btn_6_click() { current += "6"; updateDisplay(); }
 function btn_7_click() { current += "7"; updateDisplay(); }
 function btn_8_click() { current += "8"; updateDisplay(); }
 function btn_9_click() { current += "9"; updateDisplay(); }
-function btn_dot_click() { current += "."; updateDisplay(); }
+function btn_dot_click() {
+    if (!current.includes(".")) {
+        if (current == "") current = "0";
+        current += ".";
+        updateDisplay();
+    }
+}
 
+// Operator buttons
 function btn_plus_click()    { operator_click("+"); }
 function btn_minus_click()   { operator_click("−"); }
 function btn_multiply_click(){ operator_click("×"); }
@@ -75,39 +89,31 @@ function operator_click(op) {
 
 function btn_equal_click() {
     var display = document.getElementById("display");
-    if (operator != "" && operand != null && current != "") {
+    if (operator && operand != null && current != "") {
         var a = parseFloat(operand);
         var b = parseFloat(current);
         var result = 0;
 
         if (operator == "+") result = a + b;
-        else if (operator == "−") result = a - b;
-        else if (operator == "×") result = a * b;
-        else if (operator == "÷") result = b != 0 ? a / b : "Error";
+        else if (operator == "−") {
+            result = a - b;
+        }
+        else if (operator == "×") {
+            result = a * b;
+        }
+        else if (operator == "÷") {
+            result = b != 0 ? a / b : "Error";
+        }
+    
 
-        display.textContent = result;
         current = result.toString();
         operand = null;
         operator = "";
+        display.textContent = current;
     }
 }
 
-function btn_clear_click() {
-    current = "";
-    operator = "";
-    operand = null;
-    updateDisplay();
-}
-
-function btn_delete_click() {
-    var newStr = "";
-    for (var i = 0; i < current.length - 1; i++) {
-        newStr += current[i];
-    }
-    current = newStr;
-    updateDisplay();
-}
-
+// Special buttons
 function btn_sign_click() {
     if (current[0] == "-") {
         var newStr = "";
@@ -121,14 +127,30 @@ function btn_sign_click() {
     updateDisplay();
 }
 
+function btn_clear_click() {
+    current = "";
+    operator = "";
+    operand = null;
+    updateDisplay();
+}
+
+function btn_ce_click() {
+    current = "";
+    updateDisplay();
+}
+
+function btn_delete_click() {
+    var newStr = "";
+    for (var i = 0; i < current.length - 1; i++) newStr += current[i];
+    current = newStr;
+    updateDisplay();
+}
+
+// Math functions
 function btn_sqrt_click() {
     if (current != "") {
         var num = parseFloat(current);
-        if (num < 0) {
-            current = "Error";
-        } else {
-            current = Math.sqrt(num).toString();
-        }
+        current = num < 0 ? "Error" : Math.sqrt(num).toString();
         updateDisplay();
     }
 }
@@ -137,6 +159,22 @@ function btn_square_click() {
     if (current != "") {
         var num = parseFloat(current);
         current = (num * num).toString();
+        updateDisplay();
+    }
+}
+
+function btn_inv_click() {
+    if (current != "") {
+        var num = parseFloat(current);
+        current = num == 0 ? "Error" : (1 / num).toString();
+        updateDisplay();
+    }
+}
+
+function btn_percent_click() {
+    if (current != "") {
+        var num = parseFloat(current);
+        current = (num / 100).toString();
         updateDisplay();
     }
 }
