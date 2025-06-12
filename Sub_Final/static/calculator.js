@@ -1,9 +1,11 @@
+
 window.addEventListener("load", Initial);
 
 var current = "";
 var operator = "";
 var operand = null;
 
+//Set all buttons
 function Initial() {
     document.getElementById("btn_back").addEventListener("click", goBack);
     document.getElementById("switch_mode").addEventListener("click", switchMode);
@@ -36,10 +38,12 @@ function Initial() {
     document.getElementById("btn_inv").addEventListener("click", btn_inv_click);
 }
 
+//Sends back user
 function goBack() {
     window.location.href = "/main";
 }
 
+//+/-
 function switchMode() {
     var label = document.getElementById("mode_label");
     if (label.textContent == "Standard") {
@@ -50,6 +54,7 @@ function switchMode() {
     }
 }
 
+//Updates the page (makes it easier and shorter)
 function updateDisplay() {
     var display = document.getElementById("display");
     if (current == "") {
@@ -102,7 +107,7 @@ function btn_dot_click() {
     }
 }
 
-// Operators
+// Operators for it
 function btn_plus_click() { 
     operator_click("+"); 
     }
@@ -124,6 +129,7 @@ function operator_click(op) {
     }
 }
 
+//= Solve button
 function btn_equal_click() {
     var display = document.getElementById("display");
 
@@ -172,6 +178,7 @@ function btn_sign_click() {
     updateDisplay();
 }
 
+//Clears it
 function btn_clear_click() {
     current = "";
     operator = "";
@@ -179,11 +186,13 @@ function btn_clear_click() {
     updateDisplay();
 }
 
+//CE button
 function btn_ce_click() {
     current = "";
     updateDisplay();
 }
 
+//Backspace!
 function btn_delete_click() {
     var newStr = "";
     for (var i = 0; i < current.length - 1; i++) {
@@ -215,6 +224,7 @@ function btn_square_click() {
     }
 }
 
+//(1/x)
 function btn_inv_click() {
     if (current != "") {
         var num = parseFloat(current);
@@ -228,6 +238,7 @@ function btn_inv_click() {
     }
 }
 
+//Turns it into a percentage (50 to 0.50)
 function btn_percent_click() {
     if (current != "") {
         var num = parseFloat(current);
