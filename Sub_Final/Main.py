@@ -19,6 +19,7 @@ def main():
     else:
         return GetLogin()
 
+#Login
 def GetLogin():
     global startup, userindex, runtime
     runtime = 0
@@ -79,16 +80,17 @@ def main_page():
 def login():
     return render_template("log_in.html")
 
-# 🔁 Wordle game route
+# Wordle
 @app.route('/wordle', methods=["GET"])
 def wordle_main():
     return render_template('wordle.html')
 
-# 🧠 Get a random word from a list based on selected language
+#Wordle to ge the word
 @app.route('/get_word', methods=["POST"])
 def get_word():
     lang = request.form.get("lang")
 
+    #Stores the words
     english_words = [
         "apple", "grape", "tiger", "blaze", "train",
         "crane", "light", "smile", "plant", "brain",
@@ -97,12 +99,14 @@ def get_word():
     ]
 
     spanish_words = [
-        "perro", "gatoo", "luzzz", "rojos", "verde",
+        "perro", "echar", "cable", "rojos", "verde",
         "noche", "clave", "lindo", "reina", "fuego",
-        "vapor", "tarde", "pazzz", "ojito", "raton",
+        "vapor", "tarde", "nadar", "ojito", "raton",
         "hojas", "salud", "jugar", "plaza", "silla"
     ]
 
+    #Word Picket
+    #Pciks the word at random depending on the language chosen
     if lang == "english":
         return random.choice(english_words)
     elif lang == "spanish":
@@ -126,6 +130,6 @@ def converter():
 def sign_up():
     return render_template("sign_up.html")
 
-
+#After A long time finally works
 if __name__ == '__main__':
     app.run(debug=True)
