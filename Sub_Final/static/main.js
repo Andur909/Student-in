@@ -11,35 +11,31 @@ function Initial() {
 	document.getElementById("btn_converter").addEventListener("click", converter);
 
 }
-
+//Logs Out User
+//Removed old log_out since it doesnt work
 function log_out() {
-	if (true_user == false) {
-		//Change - Just for testing porpuses and replace later
-		alert("Log out, You Guest");
-		console.log("sds");
-		window.location.href = "/login";
-	} else {
-		alert("You {{Username}} are being logged out");
-		window.location.href = "/login";
-	}
+	alert("You are Being Logged Out");
+	window.location.href = "/login";
 }
 
-function profile() {
-	window.location.href = "/profile";
-}
+//Remove Profile as the page was removed
 
+//Game clicked
 function Game() {
 	window.location.href = "/wordle";
 }
 
+//Calculator CLicked
 function Calculator() {
 	window.location.href = "/calculator";
 }
 
+//About CLicked
 function about() {
 	window.location.href = "/about";
 }
 
+//Converter CLicked
 function converter() {
 	window.location.href = "/converter"
 }
