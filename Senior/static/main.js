@@ -9,6 +9,7 @@ function Initial() {
 	//middle buttons
 	document.getElementById("btn_games").addEventListener("click", Game);
 	document.getElementById("btn_calculator").addEventListener("click", Calculator);
+	document.getElementById("btn_about").addEventListener("click", about);
 
 }
 
@@ -34,4 +35,8 @@ function Game() {
 
 function Calculator() {
 	window.location.href = "/calculator";
+}
+
+function about() {
+	window.location.href = "/about";
 }

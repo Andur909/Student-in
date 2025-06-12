@@ -37,7 +37,7 @@ function Initial() {
 }
 
 function goBack() {
-    window.location.href = "main.html";
+    window.location.href = "/main";
 }
 
 function switchMode() {
