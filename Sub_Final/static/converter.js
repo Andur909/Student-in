@@ -1,10 +1,12 @@
 window.addEventListener("load", Initial);
 
+//Buttons
 function Initial() {
     document.getElementById("btn_back").addEventListener("click", Back);
     document.getElementById("btn_convert").addEventListener("click", Convert);
 }
 
+//Sends the user back
 function Back() {
     window.location.href = "/main";
 }
@@ -14,9 +16,11 @@ function Convert() {
     var value = parseFloat(document.getElementById("input_value").value);
     var result = "";
 
+    //If its a number (isNaN)
     if (isNaN(value)) {
         result = "Please enter a number.";
     }
+    //Finds the correct convertion
     else {
         if (type == "ftoc") {
             result = ((value - 32) * 5 / 9).toFixed(2) + " °C";
