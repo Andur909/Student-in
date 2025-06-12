@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ccc;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.present {
+  background-color: goldenrod;
+  color: white;
+}
+
+.absent {
+  background-color: #ccc;
+  color: white;
+}
+
+#top_div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    background-color: #333;
+}

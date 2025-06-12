@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Studentin Converter</title>
+  <link rel="stylesheet" href="/static/converter.css">
+  <script src="/static/converter.js" defer></script>
+</head>
+<body>
+  <div id="top_div">
+    <button id="btn_back">Back</button>
+  </div>
+
+  <h1>Unit Converter</h1>
+
+  <div id="convert_area">
+    <select id="conversion_type">
+      <option value="ftoc">Fahrenheit → Celsius</option>
+      <option value="ctof">Celsius → Fahrenheit</option>
+      <option value="mi_km">Miles → Kilometers</option>
+      <option value="km_mi">Kilometers → Miles</option>
+      <option value="lb_kg">Pounds → Kilograms</option>
+      <option value="kg_lb">Kilograms → Pounds</option>
+      <option value="in_cm">Inches → Centimeters</option>
+      <option value="cm_in">Centimeters → Inches</option>
+    </select>
+
+    <br><br>
+
+    <input type="number" id="input_value" placeholder="Enter value">
+    <button id="btn_convert">Convert</button>
+
+    <p id="result_output"></p>
+  </div>
+</body>
+</html>
