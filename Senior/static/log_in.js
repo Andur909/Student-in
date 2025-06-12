@@ -27,12 +27,14 @@ function sign_up() {
 
 function log_in() {
 	alert("Successfully logged in, (BETA MODE)");
-	window.location.href = "main.html";
+	window.location.href = "/main";
+
 }
 
 function guest() {
 	//ADD - Python that saves the user as guest to limit it;
 	alert("Welcome Guest! You are limited now");
 	user_type = "Guest";
-	window.location.href = "main.html";
+	window.location.href = "/main";
+
 }

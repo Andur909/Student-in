@@ -17,21 +17,21 @@ function log_out() {
 		//Change - Just for testing porpuses and replace later
 		alert("Log out, You Guest");
 		console.log("sds");
-		window.location.href = "log_in.html";
+		window.location.href = "/log_in";
 	} else {
 		alert("You {{Username}} are being logged out");
-		window.location.href = "log_in.html";
+		window.location.href = "/log_in";
 	}
 }
 
 function profile() {
-	window.location.href = "profile.html";
+	window.location.href = "/profile";
 }
 
 function Game() {
-	window.location.href = "wordle.html";
+	window.location.href = "/wordle";
 }
 
 function Calculator() {
-	window.location.href = "calculator.html";
+	window.location.href = "/calculator";
 }

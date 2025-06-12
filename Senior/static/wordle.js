@@ -1,13 +1,37 @@
-//Learned How to use arrays in javascript and other things
+var secretWord = "";
+var attempts = 0;
+
 window.addEventListener("load", Initial);
 
-var secretWord = "apple";
-var attempts = 0;
-var maxAttempts = 6;
-
 function Initial() {
+    document.getElementById("btn_back").addEventListener("click", function () {
+        window.location.href = "/main";
+    });
+
+    document.getElementById("btn_english").addEventListener("click", function () {
+        fetchWord("english");
+    });
+
+    document.getElementById("btn_spanish").addEventListener("click", function () {
+        fetchWord("spanish");
+    });
+
     document.getElementById("btn_submit").addEventListener("click", submitGuess);
-    document.getElementById("btn_back").addEventListener("click", back);
+}
+
+function fetchWord(lang) {
+    fetch("/get_word", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "lang=" + lang
+    })
+    .then(res => res.text())
+    .then(word => {
+        secretWord = word.toLowerCase();
+        document.getElementById("language_select").style.display = "none";
+        document.getElementById("game_area").style.display = "block";
+        document.getElementById("lang_label").textContent = lang.toUpperCase();
+    });
 }
 
 function submitGuess() {
@@ -19,7 +43,7 @@ function submitGuess() {
         return;
     }
 
-    if (attempts >= maxAttempts) return;
+    if (attempts >= 6) return;
 
     for (var i = 0; i < 5; i++) {
         var box = document.getElementById("tile-" + attempts + "-" + i);
@@ -41,10 +65,10 @@ function submitGuess() {
     guessInput.value = "";
 
     if (guess == secretWord) {
-        document.getElementById("message").textContent = "Nice! YOut got this!!";
+        document.getElementById("message").textContent = "🎉 Correct!";
         disableInput();
-    } else if (attempts >= maxAttempts) {
-        document.getElementById("message").textContent = "Out of tries! Word: " + secretWord;
+    } else if (attempts >= 6) {
+        document.getElementById("message").textContent = "❌ Out of tries! Word was: " + secretWord;
         disableInput();
     }
 }
@@ -52,8 +76,4 @@ function submitGuess() {
 function disableInput() {
     document.getElementById("btn_input").disabled = true;
     document.getElementById("btn_submit").disabled = true;
-}
-
-function back() {
-	window.location.href = "main.html";
 }
