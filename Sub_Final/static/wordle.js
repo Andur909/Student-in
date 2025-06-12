@@ -3,22 +3,31 @@ var attempts = 0;
 
 window.addEventListener("load", Initial);
 
+//Sets It
 function Initial() {
-    document.getElementById("btn_back").addEventListener("click", function () {
-        window.location.href = "/main";
-    });
+    document.getElementById("btn_back").addEventListener("click", Back);
 
-    document.getElementById("btn_english").addEventListener("click", function () {
-        fetchWord("english");
-    });
+    document.getElementById("btn_english").addEventListener("click", English);
 
-    document.getElementById("btn_spanish").addEventListener("click", function () {
-        fetchWord("spanish");
-    });
+    document.getElementById("btn_spanish").addEventListener("click", Spanish);
 
     document.getElementById("btn_submit").addEventListener("click", submitGuess);
 }
 
+//Sends User to Main
+function Back() {
+    window.location.href = "/main";
+}
+
+function English() {
+    fetchWord("english");
+}
+
+function Spanish() {
+    fetchWord("spanish");
+}
+
+//This took forever
 function fetchWord(lang) {
     fetch("/get_word", {
         method: "POST",
@@ -34,6 +43,7 @@ function fetchWord(lang) {
     });
 }
 
+//Submits it and checks that the requirements are met
 function submitGuess() {
     var guessInput = document.getElementById("btn_input");
     var guess = guessInput.value.toLowerCase();
@@ -64,6 +74,7 @@ function submitGuess() {
     attempts += 1;
     guessInput.value = "";
 
+    //End Game
     if (guess == secretWord) {
         document.getElementById("message").textContent = "🎉 Correct!";
         disableInput();
@@ -73,6 +84,7 @@ function submitGuess() {
     }
 }
 
+//Presnets user from trying again
 function disableInput() {
     document.getElementById("btn_input").disabled = true;
     document.getElementById("btn_submit").disabled = true;
