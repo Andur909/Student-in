@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="../static/log_in.css">
+		<script src="../static/log_in.js"></script>
+	</head>
+	<body>
+<form method="post" action="/">
+    <div id="whole_div">
+        <div id="title_div">
+            <h1>Log In</h1>
+        </div>
+        <div id="info_div">
+            <label>Username: </label>
+            <input type="text" name="txt_login_username" id="txt_username_login"><br>
+            <label>Password: </label>
+            <input type="password" name="txt_login_password" id="txt_password_login"><br>
+        </div>
+        <div id="submit_div">
+            <button type="submit" name="button" value="login" id="btn_submit_login">Submit</button>
+            <button type="button" id="btn_New_login">New Account</button>
+            <button type="button" id="btn_guest_login">Guest</button>
+        </div>
+        {% if error_start %}
+            <p style="color:red">{{ error_start }}</p>
+        {% endif %}
+    	</div>
+		</form>
+
+
+	</body>
+</html>

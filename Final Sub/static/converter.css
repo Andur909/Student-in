@@ -1,0 +1,79 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e2f;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+#top_div {
+  background-color: #12121b;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#top_div button {
+  background-color: #2e2e42;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#top_div button:hover {
+  background-color: #44445e;
+  transform: translateY(-1px);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 36px;
+}
+
+#convert_area {
+  background-color: #25324f;
+  margin: 40px auto;
+  width: 320px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+#convert_area select,
+#convert_area input {
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+
+#btn_convert {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #3b3b5c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+#btn_convert:hover {
+  background-color: #505075;
+  transform: scale(1.05);
+}
+
+#result_output {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}

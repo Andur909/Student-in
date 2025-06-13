@@ -1,0 +1,128 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e2f;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+#top_div {
+  background-color: #12121b;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#top_div button {
+  background-color: #2e2e42;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#top_div button:hover {
+  background-color: #44445e;
+  transform: translateY(-1px);
+}
+
+h1, h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#language_select {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+#language_select button {
+  padding: 14px 28px;
+  font-size: 18px;
+  background-color: #3b3b5c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#language_select button:hover {
+  background-color: #505075;
+  transform: scale(1.05);
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ccc;
+  font-size: 24px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+}
+
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.present {
+  background-color: goldenrod;
+  color: white;
+}
+
+.absent {
+  background-color: #ccc;
+  color: white;
+}
+
+#btn_input {
+  display: block;
+  margin: 20px auto 10px;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 6px;
+  border: none;
+  width: 200px;
+}
+
+#btn_submit {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #3b3b5c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btn_submit:hover {
+  background-color: #505075;
+  transform: scale(1.05);
+}
+
+#message {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 18px;
+}

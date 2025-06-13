@@ -1,0 +1,30 @@
+<html>
+<head>
+    <link rel="stylesheet" href="../static/log_in.css">
+    <script src="../static/sign_up.js" defer></script>
+</head>
+<body>
+<form method="post" action="/">
+    <div id="whole_div">
+        <div id="title_div">
+            <h1>Register</h1>
+        </div>
+        <div id="info_div">
+            <label>Username: </label>
+            <input type="text" name="txt_signin_username" id="txt_username_signup"><br>
+            <label>Password: </label>
+            <input type="password" name="txt_signin_password" id="txt_password_signup"><br>
+        </div>
+        <div id="buttons_div">
+            <button type="submit" name="button" value="signup" id="btn_create">Create</button>
+            <button type="button" id="btn_login">Log In</button>
+            <button type="button" id="btn_guest_login">Guest</button>
+        </div>
+        {% if error_start %}
+            <p style="color:red">{{ error_start }}</p>
+        {% endif %}
+    </div>
+</form>
+
+</body>
+</html>

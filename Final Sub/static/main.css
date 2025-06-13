@@ -1,0 +1,74 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e2f;
+  color: #f0f0f0;
+}
+
+#top_div {
+  background-color: #12121b;
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+#username_div button {
+  background-color: #2e2e42;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#username_div button:hover {
+  background-color: #44445e;
+  transform: translateY(-1px);
+}
+
+#title_div {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+#title_div h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+#buttons_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+#buttons_div button {
+  width: 300px;
+  padding: 18px 0;
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(145deg, #2d2d40, #1b1b2c);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#buttons_div button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(145deg, #3a3a52, #252538);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
